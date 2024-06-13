@@ -17,7 +17,7 @@ Note that you must have node installed on your machine.
 ### 2) Create `.env` file
 
 On this project files you can find a file named `.env.example`, you just need to replicate that file to the regular `.env` file.
-Besides fo this case not necessary since it is a public API and I'm even showing it explicitly int the example, I opt for it due to best practices.
+Besides for this project, not being necessary to have a .env file since it is a public API and I'm even showing it explicitly in the example, I opted for it due to best practices.
 
 ### 3) Run project `npm start`
 
