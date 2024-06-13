@@ -41,16 +41,24 @@ const WriteComment: React.FC<WriteCommentProps> = ({
         let arrayCopy = JSON.parse(JSON.stringify(commentMutation)); //deep copy
         arrayCopy[i].changes.push({
           id: lastCommentId - 1,
-          changeType: ChangeType.UPDATE,
+          changeType: ChangeType.WRITE,
           title: titleText,
           description: descriptionText,
           email: emailText,
         });
+        setLastCommentId(lastCommentId - 1);
+        setTitleText("");
+        setDescriptionText("");
+        setEmailText("");
         setCommentsMutation(arrayCopy);
+
         return;
       }
     }
-
+    setLastCommentId(lastCommentId - 1);
+    setTitleText("");
+    setDescriptionText("");
+    setEmailText("");
     setCommentsMutation([
       ...commentMutation,
       {

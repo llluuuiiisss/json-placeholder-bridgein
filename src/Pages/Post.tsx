@@ -31,6 +31,7 @@ const Post = () => {
 
   const pageSize = 2;
 
+  //function that will complete comments list with user actions (write,update,delete)
   const checkFilters = (comList: CommentData[]) => {
     const deleteArray: number[] = [];
     for (let i = 0; i < commentMutation.length; i++) {
@@ -52,7 +53,13 @@ const Post = () => {
 
         // eslint-disable-next-line no-loop-func
         commentMutation[i].changes.map((changeVal) => {
-          if (changeVal.changeType === ChangeType.WRITE) {
+          let idInArray = (element: CommentData) => {
+            return element.id === changeVal.id;
+          };
+          if (
+            changeVal.changeType === ChangeType.WRITE &&
+            !comList.some(idInArray)
+          ) {
             comList.unshift({
               id: changeVal.id,
               description: changeVal.description!,
@@ -78,6 +85,7 @@ const Post = () => {
     return comList;
   };
 
+  //get post content and comments on the first rendering
   useEffect(() => {
     const getPost = () => {
       axiosJson
@@ -109,11 +117,11 @@ const Post = () => {
               email: response.data[i].email,
             });
           }
-          //   tempComment = await checkFilters(tempComment);
           setOriginalComments(tempComment);
+          tempComment = await checkFilters(tempComment);
           setComments(tempComment);
           setCommentsPage(tempComment.slice(0, pageSize));
-          setLastCommentId(tempComment[tempComment.length - 1].id);
+          setLastCommentId(tempComment[0].id);
         })
         .catch((err) => {
           console.log(err);
@@ -123,18 +131,22 @@ const Post = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  //update page comments
   useEffect(() => {
     setCommentsPage(comments.slice(page * pageSize, (page + 1) * pageSize));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
+  //if last comment from last page deleted go to previous page
   useEffect(() => {
     if (comments.length > 0 && commentsPage.length === 0) {
       setPage(page - 1);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [commentsPage]);
 
+  //if theres a user action update comments list
   useEffect(() => {
     const updateComList = async () => {
       const auxComents = await checkFilters(originalComments);
@@ -145,6 +157,8 @@ const Post = () => {
     updateComList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [commentMutation]);
+
+  useEffect(() => {}, [originalComments]);
 
   return post !== null ? (
     <Container>
