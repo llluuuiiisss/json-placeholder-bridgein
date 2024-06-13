@@ -1,46 +1,25 @@
-# Getting Started with Create React App
+# Luís Freitas - Bridge In Exercise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made by Luís Freitas as an interview exercise to Bridge In [https://www.bridgein.pt/](https://www.bridgein.pt/)
 
-## Available Scripts
+## Project Description
 
-In the project directory, you can run:
+This projects makes use of the API from the {JSON} Placeholder [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/) to create a list of posts and its respective comments. On the application you are able to perform these 3 actions write, update(edit) and delete comments.
+Note that the API provided does not allow us to change the server data, so the solution I created only saves the data modifications during your session so when you refresh your page all the data will be restored.
 
-### `npm start`
+## How to run and Install the project
+
+### 1) Install node packages `npm install`
+
+Once you've downloaded this repository to your machine you need to run the command `npm install` so you can install all the node modules and dependencies.
+Note that you must have node installed on your machine.
+
+### 2) Create `.env` file
+
+On this project files you can find a file named `.env.example`, you just need to replicate that file to the regular `.env` file.
+Besides fo this case not necessary since it is a public API and I'm even showing it explicitly int the example, I opt for it due to best practices.
+
+### 3) Run project `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
