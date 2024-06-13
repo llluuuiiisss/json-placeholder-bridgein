@@ -14,7 +14,7 @@ const SinglePost: React.FC<PostData> = ({ id, title, description }) => {
           <Card.Title>{title}</Card.Title>
           <Card.Text>
             {description.substring(0, maxDescriptionChar)}
-            {description.length > 100 && "..."}
+            {description.length > maxDescriptionChar && "..."}
           </Card.Text>
           <Card.Link
             className="cursor-pointer"

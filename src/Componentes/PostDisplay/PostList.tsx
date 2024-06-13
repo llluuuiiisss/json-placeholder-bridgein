@@ -55,7 +55,7 @@ const PostList = () => {
           );
         })}
       </Row>
-      <Container className="mt-5">
+      <Container className="mt-5 mb-5">
         <Pagination
           page={page}
           setPage={setPage}

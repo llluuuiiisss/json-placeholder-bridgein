@@ -12,13 +12,11 @@ function App() {
     <>
       <NavBar></NavBar>
       <CommentsFilterProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<ListAllPosts />}></Route>
-            <Route path="/post/:id" element={<Post />}></Route>
-            <Route path="/how-it-works" element={<HowItWorks />}></Route>
-          </Routes>
-        </Router>
+        <Routes>
+          <Route path="/" element={<ListAllPosts />}></Route>
+          <Route path="/post/:id" element={<Post />}></Route>
+          <Route path="/how-it-works" element={<HowItWorks />}></Route>
+        </Routes>
       </CommentsFilterProvider>
     </>
   );

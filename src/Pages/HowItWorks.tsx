@@ -1,6 +1,8 @@
 import { Container, Button } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 const HowItWorks = () => {
+  const navigate = useNavigate();
   return (
     <Container className="pb-5">
       <Button
@@ -8,7 +10,9 @@ const HowItWorks = () => {
         size="sm"
         active
         className="mt-4 mb-4"
-        href="/"
+        onClick={() => {
+          navigate("/");
+        }}
       >
         {"< Post list"}
       </Button>
